@@ -6,7 +6,7 @@ import React from "react";
 var Row = React.createClass({
     render: function () {
         return (
-            <div className="row">
+            <div id="row-element" className="row col-xs-12 col-sm-12 col-md-12">
                 <div id="littleicon" className="col-xs-1"></div>
                 <div className="col-xs-11">
                     <div className="row">

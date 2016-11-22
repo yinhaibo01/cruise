@@ -20,10 +20,8 @@ var App = React.createClass({
         });
         return (
             <div className="container-fluid">
-                <div id="element" className="row">
-                    <div className="col-xs-12 col-sm-12 col-md-12">
-                        {items}
-                    </div>
+                <div className="col-md-10 col-md-offset-1">
+                    {items}
                 </div>
             </div>
         );
