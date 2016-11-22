@@ -7,30 +7,22 @@ import {Provider, connect} from "react-redux";
 import {createStore} from "redux";
 import reducers from "./reducers";
 
+import Row from "./row"
 
 let store = createStore(reducers);
 
 
 var App = React.createClass({
     render: function () {
+        var items = this.props.rows.map(function (item, index) {
+            return <Row key={'row' + index} name={item.info.name} status={item.info.status} ip={item.info.ip}
+                        dir={item.info.dir}/>
+        });
         return (
             <div className="container-fluid">
                 <div id="element" className="row">
                     <div className="col-xs-12 col-sm-12 col-md-12">
-                        <div className="row">
-                            <div id="littleicon" className="col-xs-1"></div>
-                            <div className="col-xs-11">
-                                <div className="row">
-                                    <div className="col-xs-4">bjstdmngbgr02.thoughtworks.com</div>
-                                    <div className="col-xs-1">idle</div>
-                                    <div className="col-xs-3">192.168.1.2</div>
-                                    <div className="col-xs-4">/var/lib/cruise-agent</div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-xs-2"> + Specify Resources</div>
-                                </div>
-                            </div>
-                        </div>
+                        {items}
                     </div>
                 </div>
             </div>
