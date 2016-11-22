@@ -15,8 +15,7 @@ let store = createStore(reducers);
 var App = React.createClass({
     render: function () {
         var items = this.props.rows.map(function (item, index) {
-            return <Row key={'row' + index} name={item.info.name} status={item.info.status} ip={item.info.ip}
-                        dir={item.info.dir}/>
+            return <Row key={'row' + index} info={item.info} resources={item.resources}/>
         });
         return (
             <div className="container-fluid">
