@@ -3,10 +3,19 @@
  */
 import React from "react";
 import Resources from "./resources"
+import * as Actions from "./actions"
 
 var Row = React.createClass({
     render: function () {
-        let info = this.props.info;
+        let self = this;
+        let info = self.props.info;
+
+        function removeResouce(ip) {
+            var ipTemp = ip;
+            return function (resource) {
+                self.props.dispatch(Actions.removeResouce(ipTemp, resource))
+            }
+        }
         return (
             <div id="row-element" className="row col-xs-12 col-sm-12 col-md-12">
                 <div id="littleicon" className="col-xs-1"></div>
@@ -18,7 +27,7 @@ var Row = React.createClass({
                         <div className="col-xs-4"><h4>{info.dir}</h4></div>
                     </div>
                     <div className="row">
-                        <Resources resources={this.props.resources}></Resources>
+                        <Resources resources={self.props.resources} removeResouce={removeResouce(info.ip)}></Resources>
                     </div>
                 </div>
             </div>
