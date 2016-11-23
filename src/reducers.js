@@ -55,14 +55,14 @@ function addToResource(resources, resourcesString) {
     }))
 }
 
-function removeResouce(resources, index) {
+function removeFromResouce(resources, index) {
     return [...resources.slice(0, index), ...resources.slice(index + 1)]
 }
 
 function removeResourceReducer(row, index) {
     return {
         info: infoReducer(row.info),
-        resources: removeResouce(row.resources, index)
+        resources: removeFromResouce(row.resources, index)
     }
 }
 
