@@ -3,7 +3,7 @@
  */
 import React from "react";
 import Resources from "./resources"
-import * as Actions from "./actions"
+import * as Actions from "../action/actions"
 
 var Row = React.createClass({
     render: function () {

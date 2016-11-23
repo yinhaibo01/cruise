@@ -1,8 +1,8 @@
 /**
  * Created by BenYin on 11/23/2016.
  */
-import reducer from '../src/reducers'
-import {ADD_RESOURCE, REMOVE_RESOURCE} from '../src/action-names'
+import reducer from '../src/reducer/reducers'
+import {ADD_RESOURCE, REMOVE_RESOURCE} from '../src/common/action-names'
 
 
 describe('todos reducer', () => {

@@ -4,7 +4,7 @@
 
 import React from 'react'
 import {shallow} from 'enzyme'
-import Row from '../src/row'
+import Row from '../src/react/row'
 
 function setup() {
     const props = {

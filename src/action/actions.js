@@ -1,7 +1,7 @@
 /**
  * Created by BenYin on 11/22/2016.
  */
-import {ADD_RESOURCE, REMOVE_RESOURCE} from './action-names'
+import {ADD_RESOURCE, REMOVE_RESOURCE} from '../common/action-names'
 
 export function removeResource(ip, index) {
     return {

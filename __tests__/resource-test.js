@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import {shallow} from 'enzyme'
-import Resources from '../src/resources'
+import Resources from '../src/react/resources'
 
 function setup() {
     const props = {

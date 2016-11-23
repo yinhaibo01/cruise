@@ -2,7 +2,7 @@
  * Created by BenYin on 11/21/2016.
  */
 
-import {ADD_RESOURCE, REMOVE_RESOURCE} from './action-names'
+import {ADD_RESOURCE, REMOVE_RESOURCE} from '../common/action-names'
 
 var initData = {
     rows: [
