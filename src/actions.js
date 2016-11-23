@@ -1,9 +1,11 @@
 /**
  * Created by BenYin on 11/22/2016.
  */
+import {ADD_RESOURCE, REMOVE_RESOURCE} from './action-names'
+
 export function removeResource(ip, index) {
     return {
-        type: 'RemoveResource',
+        type: REMOVE_RESOURCE,
         ip,
         index
     }
@@ -11,7 +13,7 @@ export function removeResource(ip, index) {
 
 export function addResource(ip, resources) {
     return {
-        type: 'AddResource',
+        type: ADD_RESOURCE,
         ip,
         resources
     }

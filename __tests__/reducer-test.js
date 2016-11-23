@@ -2,6 +2,8 @@
  * Created by BenYin on 11/23/2016.
  */
 import reducer from '../src/reducers'
+import {ADD_RESOURCE, REMOVE_RESOURCE} from '../src/action-names'
+
 
 describe('todos reducer', () => {
     it('should return the initial state', () => {
@@ -62,7 +64,7 @@ describe('todos reducer', () => {
                     resources: ['a', 'b', 'c']
                 }]
             }, {
-                type: 'AddResource',
+                type: ADD_RESOURCE,
                 ip: '192.168.1.2',
                 resources: 'cc'
             })
@@ -90,7 +92,7 @@ describe('todos reducer', () => {
                     resources: ['a', 'b', 'c']
                 }]
             }, {
-                type: 'AddResource',
+                type: ADD_RESOURCE,
                 ip: '192.168.1.2',
                 resources: 'd,e, f, a'
             })
@@ -120,7 +122,7 @@ describe('todos reducer', () => {
                     resources: ['a', 'b', 'c']
                 }]
             }, {
-                type: 'RemoveResource',
+                type: REMOVE_RESOURCE,
                 ip: '192.168.1.2',
                 index: 1
             })
@@ -148,7 +150,7 @@ describe('todos reducer', () => {
                     resources: ['a', 'b', 'c']
                 }]
             }, {
-                type: 'RemoveResource',
+                type: REMOVE_RESOURCE,
                 ip: '192.168.1.2',
                 index: 2
             })

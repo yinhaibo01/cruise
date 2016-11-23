@@ -2,7 +2,7 @@
  * Created by BenYin on 11/21/2016.
  */
 
-
+import {ADD_RESOURCE, REMOVE_RESOURCE} from './action-names'
 
 var initData = {
     rows: [
@@ -76,14 +76,14 @@ function addResourceReducer(row, resourceString) {
 function reducer(state = initData, action) {
     var newState = {rows: []};
     switch (action.type) {
-        case 'RemoveResource':
+        case REMOVE_RESOURCE:
             var rowIndex = state.rows.findIndex(function (row) {
                 return row.info.ip === action.ip;
             });
 
             newState.rows = [...state.rows.slice(0, rowIndex), removeResourceReducer(state.rows[rowIndex], action.index), ...state.rows.slice(rowIndex + 1)];
             return newState;
-        case 'AddResource':
+        case ADD_RESOURCE:
             var rowIndex = state.rows.findIndex(function (row) {
                 return row.info.ip === action.ip;
             });

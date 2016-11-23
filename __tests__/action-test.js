@@ -1,13 +1,13 @@
 /**
  * Created by BenYin on 11/23/2016.
  */
-import {addResource, removeResource} from '../src/actions.js'
-
+import {addResource, removeResource} from '../src/actions'
+import {ADD_RESOURCE, REMOVE_RESOURCE} from '../src/action-names'
 
 describe('actions', () => {
     it('should create an action to add one resource', () => {
         const expectedAction = {
-            type: 'AddResource',
+            type: ADD_RESOURCE,
             ip: '192.168.1.2',
             resources: 'test'
         };
@@ -15,7 +15,7 @@ describe('actions', () => {
     })
     it('should create an action to remove one resource', () => {
         const expectedAction = {
-            type: 'RemoveResource',
+            type: REMOVE_RESOURCE,
             ip: '192.168.1.2',
             index: 1
         };
