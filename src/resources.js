@@ -35,11 +35,11 @@ var Resources = React.createClass({
         var resources = this.props.resources.map(function (item, index) {
             return <span className="col-xs-1" key={'resource' + index}>
                 <div className="row">
-                <div className="col-xs-10">{item}</div>
-                <button type="button" className="close col-xs-2" onClick={removeResource(index)}>
-                    <span aria-hidden="true">&times;</span>
-                    <span className="sr-only">Close</span>
-                </button>
+                    <div className="col-xs-10">{item}</div>
+                    <button type="button" className="close col-xs-2" onClick={removeResource(index)}>
+                        <span aria-hidden="true">&times;</span>
+                        <span className="sr-only">Close</span>
+                    </button>
                 </div>
             </span>
         });
