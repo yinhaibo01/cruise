@@ -13,7 +13,7 @@ var initData = {
                 ip: '192.168.1.2',
                 dir: '/var/lib/cruise-agent'
             },
-            resources: ['a', 'b', 'c']
+            resources: ['ubuntu', 'firefox3', 'core-duo']
         },
         {
             info: {
@@ -22,7 +22,7 @@ var initData = {
                 ip: '192.168.1.3',
                 dir: '/var/lib/cruise-agent'
             },
-            resources: ['a', 'b', 'c']
+            resources: ['ubuntu', 'firefox3', 'mysql', 'core-duo']
         },
         {
             info: {
@@ -31,7 +31,7 @@ var initData = {
                 ip: '192.168.1.4',
                 dir: '/var/lib/cruise-agent'
             },
-            resources: ['a', 'b', 'c']
+            resources: ['ubuntu', 'firefox3', 'mysql', 'core-duo']
         },
         {
             info: {
@@ -40,7 +40,7 @@ var initData = {
                 ip: '192.168.1.5',
                 dir: '/var/lib/cruise-agent'
             },
-            resources: ['a', 'b', 'c']
+            resources: []
         }
     ]
 };

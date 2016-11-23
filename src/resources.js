@@ -33,7 +33,7 @@ var Resources = React.createClass({
 
 
         var resources = this.props.resources.map(function (item, index) {
-            return <span className="col-xs-1" key={'resource' + index}>
+            return <span className="col-xs-2" key={'resource' + index}>
                 <div className="row">
                     <div className="col-xs-10">{item}</div>
                     <button type="button" className="close col-xs-2" onClick={removeResource(index)}>
