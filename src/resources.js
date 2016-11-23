@@ -2,23 +2,41 @@
  * Created by BenYin on 11/22/2016.
  */
 import React from "react";
-import * as Actions from "./actions"
 
 var Resources = React.createClass({
     render: function () {
-        let self = this;
+        var self = this;
 
-        function removeResouce(item) {
-            var itemTemp = item;
+        function removeResource(index) {
+            var temp = index;
             return function () {
-                self.props.removeResouce(itemTemp);
+                self.props.removeResource(temp);
             }
         }
+
+        var dialog = $('<div id="dialog" title="Add resources"><input type="text" id="resources" value=""/></div>');
+
+        function openAddResourceDlg() {
+            dialog.dialog({
+                buttons: {
+                    'Add resources': function () {
+                        var resources = $("#resources").val();
+                        self.props.addResource(resources);
+                        dialog.dialog("destroy");
+                    },
+                    Close: function () {
+                        dialog.dialog("destroy");
+                    }
+                }
+            })
+        }
+
+
         var resources = this.props.resources.map(function (item, index) {
             return <span className="col-xs-1" key={'resource' + index}>
                 <div className="row">
                 <div className="col-xs-10">{item}</div>
-                <button type="button" className="close col-xs-2" onClick={removeResouce(item)}><span
+                <button type="button" className="close col-xs-2" onClick={removeResource(index)}><span
                     aria-hidden="true">&times;</span><span
                     className="sr-only">Close</span></button>
                 </div>
@@ -26,8 +44,8 @@ var Resources = React.createClass({
         });
         return (
             <div className="row">
-                <div className="col-xs-2">+Specify Resources</div>
-                <div className="col-xs-1"> Resources:</div>
+                <div className="col-xs-2"><a onClick={openAddResourceDlg}>+Specify Resources</a></div>
+                <div className="col-xs-1">Resources:</div>
                 <div className="col-xs-9">
                     {resources}
                 </div>

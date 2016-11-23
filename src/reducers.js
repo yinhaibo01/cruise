@@ -86,13 +86,13 @@ const rowReducer = combineReducers({
 
 function reducer(state = initData, action) {
     switch (action.type) {
-        case 'RemoveResouce':
+        case 'RemoveResource':
             var newState = {rows: []};
             for (var row = 0; row < state.rows.length; row++) {
                 if (state.rows[row].info.ip === action.ip) {
                     newState.rows[row] = {info: state.rows[row].info, resources: []};
                     for (var i = 0; i < state.rows[row].resources.length; i++) {
-                        if (state.rows[row].resources[i] !== action.resource) {
+                        if (i !== action.index) {
                             newState.rows[row].resources.push(state.rows[row].resources[i])
                         }
                     }
@@ -100,6 +100,21 @@ function reducer(state = initData, action) {
                     newState.rows[row] = Object.assign({}, state.rows[row]);
                 }
             }
+            return newState;
+        case 'AddResource':
+            var newState = {rows: []};
+            state.rows.map(function (item, index) {
+                newState.rows[index] = {};
+                newState.rows[index].info = Object.assign({}, item.info);
+                newState.rows[index].resources = item.resources.slice();
+            });
+
+            let resources = newState.rows.find(function (row) {
+                return row.info.ip === action.ip
+            }).resources;
+            action.resources.split(',').map(function (newResource) {
+                resources.push(newResource.trim());
+            });
             return newState;
         default:
             return state;
