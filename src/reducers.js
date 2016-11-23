@@ -2,7 +2,6 @@
  * Created by BenYin on 11/21/2016.
  */
 
-import {combineReducers} from 'redux'
 
 
 var initData = {
@@ -46,75 +45,49 @@ var initData = {
     ]
 };
 
-var index = 1;
-
-function FormatNumberLength(num, length) {
-    var r = "" + num;
-    while (r.length < length) {
-        r = "0" + r;
-    }
-    return r;
+function infoReducer(info) {
+    return info;
 }
 
+function addToResource(resources, resourcesString) {
+    return resources.concat(resourcesString.split(',').map(function (res) {
+        return res.trim();
+    }))
+}
 
-function getInfo(state = initData.info, action) {
-    index++;
+function removeResouce(resources, index) {
+    return [...resources.slice(0, index), ...resources.slice(index + 1)]
+}
+
+function removeResourceReducer(row, index) {
     return {
-        name: 'bjstdmngbgr' + FormatNumberLength(index) + '.grapecity.com',
-        status: 'idle',
-        ip: '192.168.1.' + index,
-        dir: '/var/lib/cruise-agent'
+        info: infoReducer(row.info),
+        resources: removeResouce(row.resources, index)
     }
 }
 
-function getResources(state = initData.resources, action) {
-    switch (action.type) {
-        case 'add':
-            return state;
-        case 'remove':
-            return state;
-        default:
-            return state;
+function addResourceReducer(row, resourceString) {
+    return {
+        info: infoReducer(row.info),
+        resources: addToResource(row.resources, resourceString)
     }
 }
-
-const rowReducer = combineReducers({
-    info: getInfo,
-    resources: getResources
-});
-
 
 function reducer(state = initData, action) {
+    var newState = {rows: []};
     switch (action.type) {
         case 'RemoveResource':
-            var newState = {rows: []};
-            for (var row = 0; row < state.rows.length; row++) {
-                if (state.rows[row].info.ip === action.ip) {
-                    newState.rows[row] = {info: state.rows[row].info, resources: []};
-                    for (var i = 0; i < state.rows[row].resources.length; i++) {
-                        if (i !== action.index) {
-                            newState.rows[row].resources.push(state.rows[row].resources[i])
-                        }
-                    }
-                } else {
-                    newState.rows[row] = Object.assign({}, state.rows[row]);
-                }
-            }
-            return newState;
-        case 'AddResource':
-            var newState = {rows: []};
-            state.rows.map(function (item, index) {
-                newState.rows[index] = {};
-                newState.rows[index].info = Object.assign({}, item.info);
-                newState.rows[index].resources = item.resources.slice();
+            var rowIndex = state.rows.findIndex(function (row) {
+                return row.info.ip === action.ip;
             });
 
-            let resources = newState.rows.find(function (row) {
-                return row.info.ip === action.ip
-            }).resources;
-            action.resources.split(',').map(function (newResource) {
-                resources.push(newResource.trim());
+            newState.rows = [...state.rows.slice(0, rowIndex), removeResourceReducer(state.rows[rowIndex], action.index), ...state.rows.slice(rowIndex + 1)];
+            return newState;
+        case 'AddResource':
+            var rowIndex = state.rows.findIndex(function (row) {
+                return row.info.ip === action.ip;
             });
+            newState.rows = [...state.rows.slice(0, rowIndex), addResourceReducer(state.rows[rowIndex], action.resources), ...state.rows.slice(rowIndex + 1)];
             return newState;
         default:
             return state;
