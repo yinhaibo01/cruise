@@ -12,10 +12,6 @@ var config = {
         devtoolModuleFilenameTemplate: '[absolute-resource-path]'
     },
 
-    devServer: {
-        inline: true,
-        port: 8888
-    },
 
     module: {
         loaders: [{
