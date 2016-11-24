@@ -5,6 +5,11 @@ import React from "react";
 import Resources from "./resources"
 import * as Actions from "../action/actions"
 
+var colorDict = {
+    'IDLE': 0,
+    'BUILDING': 1
+}
+
 var Row = React.createClass({
     render: function () {
         let self = this;
@@ -23,9 +28,10 @@ var Row = React.createClass({
                 self.props.dispatch(Actions.addResource(ipTemp, resources))
             }
         }
-        
+
+        var rowClass = "row col-xs-12 col-sm-12 col-md-12 top-buffer cruise-color" + colorDict[info.status.toUpperCase()];
         return (
-            <div id="row-element" className="row col-xs-12 col-sm-12 col-md-12 top-buffer">
+            <div id="row-element" className={rowClass}>
                 <div id="littleicon" className="col-xs-1"></div>
                 <div className="col-xs-11">
                     <div className="row">
