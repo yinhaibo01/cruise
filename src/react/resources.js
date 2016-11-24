@@ -44,7 +44,7 @@ var Resources = React.createClass({
             </span>
         });
         return (
-            <div className="row">
+            <div >
                 <div className="col-xs-2"><a onClick={openAddResourceDlg}>+Specify Resources</a></div>
                 <div className="col-xs-1">Resources:</div>
                 <div className="col-xs-9">
