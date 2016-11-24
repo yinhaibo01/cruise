@@ -25,7 +25,7 @@ var Row = React.createClass({
         }
         
         return (
-            <div id="row-element" className="row col-xs-12 col-sm-12 col-md-12">
+            <div id="row-element" className="row col-xs-12 col-sm-12 col-md-12 top-buffer">
                 <div id="littleicon" className="col-xs-1"></div>
                 <div className="col-xs-11">
                     <div className="row">
