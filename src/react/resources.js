@@ -45,7 +45,7 @@ var Resources = React.createClass({
         });
         return (
             <div >
-                <div className="col-xs-2"><a onClick={openAddResourceDlg}>+Specify Resources</a></div>
+                <center className="col-xs-2"><a onClick={openAddResourceDlg}>+Specify Resources</a></center>
                 <div className="col-xs-1">Resources:</div>
                 <div className="col-xs-9">
                     {resources}

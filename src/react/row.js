@@ -35,10 +35,10 @@ var Row = React.createClass({
                 <div id="littleicon" className="col-xs-1"></div>
                 <div className="col-xs-11">
                     <div className="row">
-                        <div className="col-xs-4"><span className="info-row">{info.name}</span></div>
-                        <div className="col-xs-1"><span className="info-row">{info.status}</span></div>
-                        <div className="col-xs-3"><span className="info-row">{info.ip}</span></div>
-                        <div className="col-xs-4"><span className="info-row">{info.dir}</span></div>
+                        <center className="col-xs-4 info-row">{info.name}</center>
+                        <center className="col-xs-2 info-row">{info.status}</center>
+                        <center className="col-xs-3 info-row">{info.ip}</center>
+                        <center className="col-xs-3 info-row">{info.dir}</center>
                     </div>
                     <div className="row">
                         <Resources resources={self.props.resources} removeResource={removeResource(info.ip)}
