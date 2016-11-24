@@ -23,7 +23,7 @@ describe('todos reducer', () => {
                 {
                     info: {
                         name: 'bjstdmngbgr02.grapecity.com',
-                        status: 'idle',
+                        status: 'building',
                         ip: '192.168.1.3',
                         dir: '/var/lib/cruise-agent'
                     },
@@ -32,7 +32,7 @@ describe('todos reducer', () => {
                 {
                     info: {
                         name: 'bjstdmngbgr03.grapecity.com',
-                        status: 'idle',
+                        status: 'building',
                         ip: '192.168.1.4',
                         dir: '/var/lib/cruise-agent'
                     },
